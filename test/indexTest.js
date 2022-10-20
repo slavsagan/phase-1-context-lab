@@ -6,6 +6,7 @@ describe("The payroll system", function () {
       expect(createEmployeeRecord).to.exist
     })
 
+
     describe("createEmployeeRecord", function () {
       it("populates a firstName field from the 0th element", function () {
         let testEmployee = createEmployeeRecord(["Gray", "Worm", "Security", 1])
@@ -39,6 +40,8 @@ describe("The payroll system", function () {
     })
   })
 
+
+
   describe("process an Array of Arrays into an Array of employee records", function () {
     it("has a function called createEmployeeRecords", function () {
       expect(createEmployeeRecords).to.exist
@@ -71,6 +74,14 @@ describe("The payroll system", function () {
     })
   })
 
+
+
+
+
+
+
+
+
   describe("it adds a timeIn event Object to an employee's record of timeInEvents when provided an employee record and Date/Time String and returns the updated record", function () {
     it("has a function called createTimeInEvent", function () {
       expect(createTimeInEvent).to.exist
@@ -102,6 +113,14 @@ describe("The payroll system", function () {
     })
   })
 
+
+
+
+
+
+
+
+  
   describe("it adds a timeOut event Object to an employee's record of timeOutEvents when provided an employee record and Date/Time String and returns the updated record", function () {
 
     it("has a function called createTimeOutEvent", function () {
@@ -134,6 +153,16 @@ describe("The payroll system", function () {
     })
   })
 
+
+
+
+
+
+
+
+
+
+
   describe("Given an employee record with a date-matched timeInEvent and timeOutEvent", function () {
 
     it("hoursWorkedOnDate calculates the hours worked when given an employee record and a date", function () {
@@ -150,11 +179,22 @@ describe("The payroll system", function () {
     })
   })
 
+
+
+
+
+
+
+
+
   describe("Given an employee record with a date-matched timeInEvent and timeOutEvent", function () {
 
     it("wagesEarnedOnDate multiplies the hours worked by the employee's rate per hour", function () {
       expect(wagesEarnedOnDate).to.exist
     })
+
+
+
 
     describe("wagesEarnedOnDate", function () {
       it("calculates that the employee earned 54 dollars", function () {
@@ -163,6 +203,7 @@ describe("The payroll system", function () {
         createTimeOutEvent.call(cRecord, "2044-03-15 1100")
         expect(wagesEarnedOnDate.call(cRecord, "2044-03-15")).to.equal(54)
       })
+
 
       it("uses hoursWorkedOnDate", function() {
         let mySpy = chai.spy.on(window, "hoursWorkedOnDate")
@@ -174,6 +215,10 @@ describe("The payroll system", function () {
       })
     })
   })
+
+
+
+
 
   describe("Given an employee record with MULTIPLE date-matched timeInEvent and timeOutEvent", function () {
 
@@ -205,10 +250,16 @@ describe("The payroll system", function () {
     })
   })
 
+
+
+
+
+
   describe("Given an array of multiple employees", function () {
     it("allWagesFor aggregates all the dates' wages and adds them together", function () {
       expect(allWagesFor).to.exist
     })
+
 
     describe("allWagesFor", function () {
       it("calculates that the employees earned 770 dollars", function () {
@@ -243,6 +294,7 @@ describe("The payroll system", function () {
     })
   })
 
+
   describe("runs payroll using the mock data provided by Ultron data systems", function () {
     describe("Dependent functions: createEmployeeRecords", function () {
       describe("takes CSV data, returns an array of employee records", function () {
@@ -263,6 +315,11 @@ describe("The payroll system", function () {
       })
     })
 
+
+
+
+
+
     describe("Dependent functions: findEmployeeByFirstName(collection, firstNameString)", function () {
       it("exists", function () {
         expect(findEmployeeByFirstName).to.exist
@@ -279,6 +336,10 @@ describe("The payroll system", function () {
       })
     })
 
+
+
+
+    
     describe("Full Payroll Test", function () {
       /* Imported data courtesy of Ultron Consulting services
        *
